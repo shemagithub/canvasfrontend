@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Account and utility pages — not for search indexing
+Disallow: /login
+Disallow: /signup
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /account
+Disallow: /fleet-unsubscribe
+
+Sitemap: https://canvastoursafrica.com/sitemap.xml

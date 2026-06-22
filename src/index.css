@@ -1,0 +1,316 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./styles/theme.css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --font-sans: "Inter", sans-serif;
+  --font-brand: "Michroma", sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --animate-hero-ken-burns-subtle: hero-ken-burns-subtle var(--hero-slide-duration, 6s) ease-out forwards;
+}
+
+/* ── DARK THEME (default) ─────────────────────────────────── */
+:root, .dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 0 0% 4%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 6%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 6%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 79% 50%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 79% 50%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 0 79% 50%;
+  --radius: 0.625rem;
+
+  /* Page-level surface tokens (used by overrides below) */
+  --surface-base:    #0a0a0a;
+  --surface-raised:  #111111;
+  --surface-card:    #0d0d0d;
+  --surface-border:  rgba(255,255,255,0.06);
+  --text-primary:    #ffffff;
+  --text-muted:      rgba(255,255,255,0.5);
+  --navbar-bg:       rgba(0,0,0,0.92);
+  --bottom-bar-bg:   rgba(0,0,0,0.95);
+  --bottom-bar-border: rgba(255,255,255,0.10);
+  --stain-glow: rgba(255, 255, 255, 0.03);
+
+  --footer-wave-fill: #050505;
+  --footer-text: #ffffff;
+  --footer-text-muted: rgba(255, 255, 255, 0.58);
+  --footer-text-faint: rgba(255, 255, 255, 0.42);
+  --footer-border: rgba(255, 255, 255, 0.1);
+  --footer-input-bg: rgba(255, 255, 255, 0.06);
+  --footer-input-border: rgba(255, 255, 255, 0.14);
+  --footer-badge-bg: rgba(255, 255, 255, 0.06);
+  --footer-badge-border: rgba(255, 255, 255, 0.12);
+  --footer-shadow: 0 -8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* ── LIGHT THEME (warm cream — #F9F6F2) ───────────────────── */
+.light {
+  --button-outline: rgba(0,0,0,.10);
+  --badge-outline: rgba(0,0,0,.05);
+  --opaque-button-border-intensity: 4;
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .06);
+
+  --background: 34 30% 96%;
+  --foreground: 0 0% 6%;
+  --card: 40 20% 99%;
+  --card-foreground: 0 0% 6%;
+  --popover: 40 20% 99%;
+  --popover-foreground: 0 0% 6%;
+  --primary: 0 79% 50%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 34 18% 92%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 34 16% 92%;
+  --muted-foreground: 0 0% 42%;
+  --accent: 0 79% 50%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 34 12% 84%;
+  --input: 34 12% 84%;
+  --ring: 0 79% 50%;
+  --radius: 0.625rem;
+
+  --surface-base:    #f9f6f2;
+  --surface-raised:  #f3efe9;
+  --surface-card:    #fdfcfa;
+  --surface-border:  rgba(60, 45, 35, 0.08);
+  --text-primary:    #0a0a0a;
+  --text-muted:      rgba(0,0,0,0.45);
+  --navbar-bg:       rgba(249, 246, 242, 0.95);
+  --bottom-bar-bg:   rgba(249, 246, 242, 0.97);
+  --bottom-bar-border: rgba(60, 45, 35, 0.10);
+  --stain-glow: rgba(227, 30, 36, 0.06);
+
+  --footer-wave-fill: #f0ebe5;
+  --footer-text: #0a0a0a;
+  --footer-text-muted: rgba(10, 10, 10, 0.58);
+  --footer-text-faint: rgba(10, 10, 10, 0.42);
+  --footer-border: rgba(60, 45, 35, 0.1);
+  --footer-input-bg: rgba(60, 45, 35, 0.04);
+  --footer-input-border: rgba(60, 45, 35, 0.12);
+  --footer-badge-bg: rgba(60, 45, 35, 0.05);
+  --footer-badge-border: rgba(60, 45, 35, 0.1);
+  --footer-shadow: 0 -8px 32px rgba(60, 45, 35, 0.08);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--surface-base);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* ── GLOBAL SURFACE OVERRIDES ─────────────────────────────── */
+/*
+   These override the hardcoded Tailwind utility classes used throughout pages
+   when the .light class is active on <html>.
+*/
+
+/* Page backgrounds */
+.light .bg-black          { background-color: var(--surface-base) !important; }
+.light [class~="bg-[#0a0a0a]"] { background-color: var(--surface-base) !important; }
+.light [class~="bg-[#0d0d0d]"] { background-color: var(--surface-card) !important; }
+.light [class~="bg-[#111]"]    { background-color: var(--surface-raised) !important; }
+.light [class~="bg-[#111111]"] { background-color: var(--surface-raised) !important; }
+.light [class~="bg-[#050505]"] { background-color: var(--footer-bg) !important; }
+.light [class~="bg-[#222]"]    { background-color: var(--surface-border) !important; }
+.light [class~="bg-[#222222]"] { background-color: var(--surface-border) !important; }
+.light .bg-gray-50        { background-color: var(--surface-base) !important; }
+.light .bg-white\/5       { background-color: rgba(0,0,0,0.05) !important; }
+.light .bg-white\/10      { background-color: rgba(0,0,0,0.08) !important; }
+.light [class~="bg-white/[0.03]"] { background-color: rgba(0,0,0,0.03) !important; }
+
+/* Text */
+.light .text-white,
+.light .text-gray-900        { color: var(--text-primary) !important; }
+.light .text-white\/90    { color: rgba(10,10,10,0.90) !important; }
+.light .text-white\/85    { color: rgba(10,10,10,0.85) !important; }
+.light .text-white\/80    { color: rgba(10,10,10,0.75) !important; }
+.light .text-white\/70    { color: rgba(10,10,10,0.65) !important; }
+.light .text-white\/60    { color: rgba(10,10,10,0.55) !important; }
+.light .text-white\/55    { color: rgba(10,10,10,0.50) !important; }
+.light .text-white\/50,
+.light .text-gray-600    { color: var(--text-muted) !important; }
+.light .text-white\/40    { color: rgba(10,10,10,0.38) !important; }
+.light .text-white\/30    { color: rgba(10,10,10,0.28) !important; }
+.light .text-white\/20    { color: rgba(10,10,10,0.22) !important; }
+
+/* Borders */
+.light .border-white\/5   { border-color: rgba(0,0,0,0.07) !important; }
+.light .border-white\/8   { border-color: rgba(0,0,0,0.09) !important; }
+.light .border-white\/10  { border-color: rgba(0,0,0,0.10) !important; }
+.light .border-white\/15  { border-color: rgba(0,0,0,0.13) !important; }
+.light .border-white\/20  { border-color: rgba(0,0,0,0.16) !important; }
+.light .border-white\/8   { border-color: rgba(0,0,0,0.09) !important; }
+.light .border-white\/15  { border-color: rgba(0,0,0,0.12) !important; }
+
+/* Navbar */
+.light header             { background-color: var(--navbar-bg) !important; }
+.light header.bg-transparent { background-color: transparent !important; }
+
+/* Bottom bar */
+.light nav.fixed.bottom-0 { background-color: var(--bottom-bar-bg) !important; border-color: var(--bottom-bar-border) !important; }
+
+/* Black/30 backdrop in chatbot */
+.light .bg-black\/30      { background-color: rgba(249,246,242,0.8) !important; }
+.light .bg-black\/60      { background-color: rgba(249,246,242,0.7) !important; }
+.light .bg-black\/20      { background-color: rgba(60,45,35,0.06) !important; }
+.light .bg-black\/10      { background-color: rgba(60,45,35,0.04) !important; }
+.light .bg-black\/95      { background-color: var(--navbar-bg) !important; }
+.light .bg-black\/90      { background-color: var(--navbar-bg) !important; }
+.light .bg-black\/80      { background-color: rgba(249,246,242,0.85) !important; }
+.light .bg-black\/70      { background-color: var(--glass-bg) !important; }
+.light .bg-black\/50      { background-color: var(--overlay-scrim) !important; }
+
+/* Hover / focus utilities */
+.light .hover\:bg-white\/10:hover  { background-color: rgba(60,45,35,0.06) !important; }
+.light .hover\:text-white:hover    { color: var(--text-primary) !important; }
+.light .hover\:border-white\/20:hover { border-color: rgba(60,45,35,0.14) !important; }
+.light .hover\:bg-black\/80:hover  { background-color: rgba(10,10,10,0.85) !important; color: #fff !important; }
+.light .placeholder\:text-white\/20::placeholder { color: var(--text-muted) !important; opacity: 0.7; }
+
+.light .from-black\/40    { --tw-gradient-from: rgba(249,246,242,0.52) !important; }
+.light .from-black\/70    { --tw-gradient-from: rgba(249,246,242,0.68) !important; }
+.light .from-black\/80    { --tw-gradient-from: var(--hero-scrim) !important; }
+.light .from-black\/90    { --tw-gradient-from: rgba(249,246,242,0.8) !important; }
+.light .via-black\/20     { --tw-gradient-via: rgba(249,246,242,0.42) !important; }
+.light .via-black\/30     { --tw-gradient-via: rgba(249,246,242,0.34) !important; }
+.light .to-black\/20      { --tw-gradient-to: rgba(249,246,242,0.38) !important; }
+.light .to-black\/55      { --tw-gradient-to: rgba(249,246,242,0.62) !important; }
+.light .bg-white\/40      { background-color: rgba(60,45,35,0.18) !important; }
+.light .hover\:bg-white\/70:hover { background-color: rgba(60,45,35,0.28) !important; }
+
+/* Hero & section gradients */
+.light .from-black        { --tw-gradient-from: var(--hero-gradient-from) !important; --tw-gradient-to: transparent !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+.light .to-black          { --tw-gradient-to: var(--hero-gradient-from) !important; }
+.light .via-black\/40     { --tw-gradient-via: var(--hero-gradient-mid) !important; }
+.light .via-black\/60     { --tw-gradient-via: var(--hero-scrim) !important; }
+
+/* Smooth theme transition on all elements */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, filter, opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+
+/* Theme switch — knob slide must not fight global transitions */
+.theme-toggle,
+.theme-toggle * {
+  transition-property: transform, opacity, background-color, border-color, box-shadow !important;
+}
+.theme-toggle {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Bordered frames & panels — soft corners sitewide */
+.frame {
+  border-radius: var(--radius-lg);
+}
+.frame-sm {
+  border-radius: var(--radius-md);
+}
+
+/* Leaflet maps (contact locations) */
+.leaflet-container {
+  background: var(--leaflet-bg);
+  font-family: inherit;
+  transition: background-color 0.3s ease;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-md);
+}
+
+/* Hero slideshow — stable cover fit; subtle drift only (no zoom-out between slides) */
+@keyframes hero-ken-burns-subtle {
+  from {
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.055);
+  }
+}
+
+.hero-slide-idle {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+/* Navbar / brand wordmark — geometric industrial caps (Michroma) */
+.brand-wordmark {
+  font-family: var(--font-brand);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  text-wrap: balance;
+}

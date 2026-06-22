@@ -1,0 +1,330 @@
+/* Semantic theme surfaces — work in dark & light via CSS variables */
+
+@layer components {
+  .surface-page {
+    background-color: var(--surface-base);
+    color: var(--text-primary);
+  }
+
+  .surface-section {
+    background-color: var(--surface-base);
+  }
+
+  .surface-section-alt {
+    background-color: var(--surface-card);
+  }
+
+  .surface-raised {
+    background-color: var(--surface-raised);
+  }
+
+  .surface-card {
+    background-color: var(--surface-raised);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .surface-panel {
+    background-color: var(--surface-card);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .surface-input {
+    background-color: var(--surface-raised);
+    border: 1px solid var(--surface-border);
+    color: var(--text-primary);
+    border-radius: var(--radius-lg);
+  }
+
+  .surface-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .border-theme {
+    border-color: var(--surface-border);
+  }
+
+  .text-theme {
+    color: var(--text-primary);
+  }
+
+  .text-theme-muted {
+    color: var(--text-muted);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to top,
+      var(--hero-gradient-from) 0%,
+      var(--hero-gradient-mid) 45%,
+      transparent 100%
+    );
+  }
+
+  .footer-site {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    box-shadow: var(--footer-shadow);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .footer-heading {
+    color: var(--footer-text);
+  }
+
+  .footer-text-muted {
+    color: var(--footer-text-muted);
+  }
+
+  .footer-text-faint {
+    color: var(--footer-text-faint);
+  }
+
+  .footer-divider {
+    border-color: var(--footer-border);
+  }
+
+  .footer-input {
+    background-color: var(--footer-input-bg);
+    border-color: var(--footer-input-border);
+    color: var(--footer-text);
+  }
+
+  .footer-input::placeholder {
+    color: var(--footer-text-faint);
+    opacity: 0.85;
+  }
+
+  .footer-badge {
+    background-color: var(--footer-badge-bg);
+    border-color: var(--footer-badge-border);
+    color: var(--footer-text-muted);
+  }
+
+  .footer-link {
+    color: var(--footer-text-muted);
+  }
+
+  .footer-link:hover {
+    color: hsl(var(--primary));
+  }
+
+  .footer-social-btn {
+    color: color-mix(in srgb, var(--footer-text) 82%, transparent);
+  }
+
+  .footer-social-btn:hover {
+    color: hsl(var(--primary));
+    background-color: var(--footer-badge-bg);
+  }
+
+  /* Legacy alias */
+  .footer-surface {
+    background-color: var(--footer-bg);
+  }
+
+  .glass-panel {
+    background-color: var(--glass-bg);
+    border-color: var(--surface-border);
+  }
+
+  .chat-surface {
+    background-color: var(--chat-bg);
+  }
+
+  .hero-overlay-side {
+    background: linear-gradient(
+      to right,
+      var(--hero-gradient-from) 0%,
+      transparent 50%,
+      var(--hero-gradient-from) 100%
+    );
+  }
+
+  /* Hero / slideshow photography — adapts per theme */
+  .theme-hero-shell {
+    background-color: var(--hero-shell-bg);
+  }
+
+  .theme-hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: var(--media-photo-opacity);
+    mix-blend-mode: var(--media-photo-blend);
+    filter: var(--media-photo-filter);
+    transition: opacity 0.35s ease, filter 0.35s ease, mix-blend-mode 0.35s ease;
+  }
+
+  .theme-editorial-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: var(--media-editorial-opacity);
+    mix-blend-mode: var(--media-editorial-blend);
+    filter: var(--media-editorial-filter);
+    transition: opacity 0.35s ease, filter 0.7s ease, mix-blend-mode 0.7s ease;
+  }
+
+  .theme-editorial-photo:hover {
+    mix-blend-mode: normal;
+    filter: var(--media-editorial-filter-hover);
+  }
+
+  .theme-hero-scrim-t {
+    background: var(--hero-scrim-vertical);
+  }
+
+  .theme-hero-scrim-b {
+    background: var(--hero-scrim-top-fade);
+  }
+
+  .theme-hero-scrim-x {
+    background: var(--hero-scrim-horizontal);
+  }
+
+  .theme-slideshow-scrim {
+    background: var(--slideshow-scrim);
+  }
+
+  .theme-slideshow-slide {
+    filter: var(--slideshow-slide-filter);
+    transition: filter 0.35s ease;
+  }
+
+  .theme-texture-pattern {
+    opacity: var(--texture-overlay-opacity);
+    mix-blend-mode: var(--texture-blend-mode);
+  }
+
+  /* Destination cards — dark bottom scrim only (avoids cream vignette in light mode) */
+  .destination-card-scrim {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.22) 38%,
+      transparent 72%
+    );
+  }
+
+  .light .destination-card-scrim {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.1) 30%,
+      transparent 62%
+    );
+  }
+
+  .image-overlay-text,
+  .image-overlay-text h3 {
+    color: #ffffff;
+  }
+
+  .light .image-overlay-text,
+  .light .image-overlay-text h3 {
+    color: #ffffff !important;
+  }
+
+  /* CMS / legal article body — theme-aware (overrides editor inline colors) */
+  .cms-article :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--text-primary) !important;
+  }
+
+  .cms-article :where(p, li, figcaption) {
+    color: var(--text-muted);
+  }
+
+  .cms-article :where(strong) {
+    color: var(--text-primary);
+  }
+}
+
+:root,
+.dark {
+  --hero-gradient-from: #000000;
+  --hero-gradient-mid: rgba(0, 0, 0, 0.4);
+  --hero-scrim: rgba(0, 0, 0, 0.6);
+  --overlay-scrim: rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(0, 0, 0, 0.7);
+  --chat-bg: #0d0d0d;
+  --footer-bg: #050505;
+  --hero-shell-bg: #0a0a0a;
+  --mobile-nav-bar: #0a0a0a;
+  --leaflet-bg: #111111;
+  --media-photo-opacity: 1;
+  --media-photo-blend: normal;
+  --media-photo-filter: brightness(0.7) saturate(0.9);
+  --media-editorial-opacity: 1;
+  --media-editorial-blend: luminosity;
+  --media-editorial-filter: brightness(0.75) saturate(0.85);
+  --media-editorial-filter-hover: brightness(0.95) saturate(1);
+  --hero-scrim-vertical: linear-gradient(to top, #0a0a0a 0%, rgba(10, 10, 10, 0.5) 45%, transparent 100%);
+  --hero-scrim-top-fade: linear-gradient(to bottom, rgba(10, 10, 10, 0.8) 0%, transparent 55%);
+  --hero-scrim-horizontal: linear-gradient(to right, #0a0a0a 0%, transparent 50%, #0a0a0a 100%);
+  --slideshow-scrim: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.72));
+  --slideshow-slide-filter: brightness(0.78) saturate(0.92);
+  --texture-overlay-opacity: 0.14;
+  --texture-blend-mode: overlay;
+}
+
+.light {
+  --hero-gradient-from: #f9f6f2;
+  --hero-gradient-mid: rgba(249, 246, 242, 0.85);
+  --hero-scrim: rgba(249, 246, 242, 0.75);
+  --overlay-scrim: rgba(60, 45, 35, 0.28);
+  --glass-bg: rgba(253, 252, 250, 0.88);
+  --chat-bg: #fdfcfa;
+  --footer-bg: #f0ebe5;
+  --hero-shell-bg: #f9f6f2;
+  --mobile-nav-bar: #f0ebe5;
+  --leaflet-bg: #f1ede8;
+  --media-photo-opacity: 0.94;
+  --media-photo-blend: normal;
+  --media-photo-filter: saturate(1.04) brightness(1.02);
+  --media-editorial-opacity: 1;
+  --media-editorial-blend: normal;
+  --media-editorial-filter: saturate(1.02) brightness(1);
+  --media-editorial-filter-hover: saturate(1.08) brightness(1.03);
+  --hero-scrim-vertical: linear-gradient(to top, #f9f6f2 0%, rgba(249, 246, 242, 0.55) 45%, transparent 100%);
+  --hero-scrim-top-fade: linear-gradient(to bottom, rgba(249, 246, 242, 0.82) 0%, transparent 55%);
+  --hero-scrim-horizontal: linear-gradient(to right, #f9f6f2 0%, transparent 50%, #f9f6f2 100%);
+  --slideshow-scrim: linear-gradient(to bottom, rgba(249, 246, 242, 0.52), rgba(249, 246, 242, 0.3), rgba(249, 246, 242, 0.68));
+  --slideshow-slide-filter: saturate(1.05) brightness(1.02);
+  --texture-overlay-opacity: 0.07;
+  --texture-blend-mode: multiply;
+}
+
+/* Prose (blog) */
+.light .prose-p\:text-white\/70 :where(p) {
+  color: var(--text-muted) !important;
+}
+
+.light .prose-strong\:text-white :where(strong) {
+  color: var(--text-primary) !important;
+}
+
+.light .prose-blockquote\:bg-\[\#0a0a0a\] :where(blockquote) {
+  background-color: var(--surface-card) !important;
+}
+
+.light .prose-headings\:text-white :where(h1, h2, h3, h4) {
+  color: var(--text-primary) !important;
+}
+
+/* Native form controls */
+.light select.surface-input option,
+.light .surface-input option {
+  background-color: var(--surface-raised);
+  color: var(--text-primary);
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}

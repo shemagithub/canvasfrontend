@@ -1,0 +1,42 @@
+# =============================================================================
+# LiteSpeed / cPanel Passenger — copy to `.htaccess` in THIS directory
+# (same folder as passenger_wsgi.py) OR follow your host's doc if it must live
+# under public_html instead. Replace ALL placeholders with your real paths.
+# =============================================================================
+#
+# ---- Make http(s)://b.novacarrentals.com/ work (fixes common errors) ----
+#
+# 1) WSGI vs ASGI: Passenger calls WSGI (environ, start_response).
+#    If the panel uses FastAPI `app`, you get:
+#      TypeError: FastAPI.__call__() missing ... 'send'
+#    Fix: Startup file MUST be passenger_wsgi.py OR wsgi.py from this repo.
+#         Application / callable / entry MUST be exactly: application
+#         (Accepted aliases: wsgi, wsgi_application — NOT `app`.)
+#
+# 2) `pip install -r requirements.txt` in THIS domain's venv (needs a2wsgi).
+#
+# 3) CORS log spam: Older copies of server.py logged a CORS hint at INFO.
+#    Deploy the current backend and restart the Passenger app — that message
+#    no longer exists. For strict production CORS, set in `.env`:
+#      CORS_ORIGINS=https://your-admin-host.com
+#    (comma-separated list; omit *.)
+#
+# 4) LSAPI_CHILDREN / “Reached max children process limit” — not fixable here.
+#    In LiteSpeed WebAdmin (or hosting support): Configuration → tuning /
+#    external apps → raise LSAPI_CHILDREN (and/or Passenger pool limits) when
+#    every worker is busy. Otherwise increase plan or lighten slow requests.
+#
+
+PassengerEnabled On
+PassengerAppType wsgi
+PassengerStartupFile passenger_wsgi.py
+PassengerAppRoot "/home/USERNAME/domains/b.novacarrentals.com/backend"
+PassengerBaseURI /
+PassengerPython "/home/USERNAME/virtualenv/b.novacarrentals.com/3.11/bin/python"
+
+# If the panel ignores the Python path line, set the version only in Setup Python App UI.
+# Startup file MUST match the file uploaded (often `passenger_wsgi.py`); if UI asks for an
+# “Application root file”, still point it at passenger_wsgi.py and callable `application`.
+
+# Optional: quieter errors in production once everything works:
+# PassengerFriendlyErrorPages Off
